@@ -26,7 +26,6 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
@@ -48,6 +47,21 @@ class UsersController < ApplicationController
       else
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  
+  #links  automatically   a Badge to a User once required conditions are met
+  #Conditions: 
+    # "Halfway" Badge: User has to have viewed a first and last  videos only
+    # "Allway" Badge: User has to have viewed the "Ruby Methods" video only
+    # "SpeedRun" Badge: User has to have viewed last  videos only
+  def link_badge_user
+    respond_to do |format|
+      if User.link_automatically_badge_to_user_with_conditions(params[:id])
+        format.html { redirect_to users_path, notice: 'Link badge with user was successfully created.' }
+      else
+        format.html { redirect_to users_path, notice: 'Link badge with user cannot be created becausethe conditions are not met .' }
       end
     end
   end
