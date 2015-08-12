@@ -20,4 +20,8 @@ class User < ActiveRecord::Base
   def watched? video
     videos.include? video
   end
+  def self.get_user_ids(company_id)
+    user_ids = self.where(company_id: company_id)
+    BadgeUser.get_badge_ids(user_ids)
+  end
 end

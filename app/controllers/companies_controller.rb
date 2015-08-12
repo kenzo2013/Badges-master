@@ -10,6 +10,9 @@ class CompaniesController < ApplicationController
   # GET /companies/1
   # GET /companies/1.json
   def show
+    
+   @badges = Company.badges_per_company(params[:id])
+   @user = "user(s):"
   end
 
   # GET /companies/new

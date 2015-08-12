@@ -1,0 +1,25 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Vagrant
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    #current_user
+      = container_tag do
+        = row_tag do
+          = col_3_tag do
+            Current Logged User is : #{current_user}
+          = col_6_tag do
+            Log in as :
+            - User.all.each do |user|
+              = link_to " #{ user }", log_in_path(id: user)
+              \-
+          = col_3_tag class: :text_right do
+            = link_to "Log out", log_out_path
+    #current_controller
+      = container_3_tag [:companies, :users, :videos, :badges], id: :current_controller, rows: {cols: {class: 'text-center'}} do |controller|
+        = link_to controller, send("#{ controller }_path")
+    = yield
