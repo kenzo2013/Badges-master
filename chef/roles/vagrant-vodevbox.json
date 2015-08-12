@@ -1,0 +1,40 @@
+{
+  "name": "vagrant-vodevbox",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+ 	  "mysql": {
+    	"server_repl_password": "iloverandompasswordsbutthiswilldo",
+    	"server_debian_password": "iloverandompasswordsbutthiswilldo",
+      "allow_remote_root": true,
+      "remove_anonymous_users": true
+  	},
+    "authorization" : {
+      "sudo" : {
+        "agent_forwarding" : true,
+        "groups" : ["admin", "wheel", "sysadmin"],
+        "users" : ["vagrant"],
+        "passwordless" : true
+      }
+    }
+  },
+  "description": "Ready to use VoDevBox VM",
+  "run_list": [
+    "recipe[git]",
+    "recipe[sudo]",
+    "recipe[ulimit]",
+	  "recipe[mysql::server]",
+    "recipe[redisio::install]",
+    "recipe[redisio::enable]",
+    "recipe[imagemagick::rmagick]",
+    "recipe[memcached]",
+    "recipe[openssl]",
+    "recipe[geoip]",
+    "recipe[zip]",
+    "recipe[libmagic]",
+    "recipe[libcurl]",
+    "recipe[rvm::user]"
+  ]
+}

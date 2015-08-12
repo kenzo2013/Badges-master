@@ -1,0 +1,74 @@
+SITE
+  remote: http://community.opscode.com/api/v1
+  specs:
+    build-essential (2.0.2)
+    chef_gem (0.1.0)
+    chef_handler (1.1.6)
+    dmg (2.2.0)
+    geoip (0.1.0)
+    git (4.0.2)
+      build-essential (>= 0.0.0)
+      dmg (>= 0.0.0)
+      runit (>= 1.0.0)
+      windows (>= 0.0.0)
+      yum (~> 3.0)
+      yum-epel (>= 0.0.0)
+    imagemagick (0.2.3)
+    memcached (1.7.2)
+      runit (~> 1.0)
+      yum (~> 3.0)
+      yum-epel (>= 0.0.0)
+    mysql (5.2.12)
+    openssl (1.1.0)
+    redisio (1.7.1)
+      ulimit (>= 0.1.2)
+    runit (1.5.10)
+      build-essential (>= 0.0.0)
+      yum (~> 3.0)
+      yum-epel (>= 0.0.0)
+    sudo (2.6.0)
+    ulimit (0.2.0)
+    windows (1.31.0)
+      chef_handler (>= 0.0.0)
+    yum (3.2.0)
+    yum-epel (0.3.6)
+      yum (~> 3.0)
+    zip (1.1.0)
+
+GIT
+  remote: git@github.com:froschi/chef-cookbook-libmagic.git
+  ref: master
+  sha: 106601117cd583b2706acb428fc5ed7f355116eb
+  specs:
+    libmagic (0.0.1)
+
+GIT
+  remote: git@github.com:theodi/chef-libcurl.git
+  ref: master
+  sha: 3473e7424f1eaa673766c9d09fa0135733ece81d
+  specs:
+    libcurl (0.1.0)
+
+GIT
+  remote: https://github.com/fnichol/chef-rvm
+  ref: master
+  sha: dd58087e7399097a9b9df4e2e7235908aace2afd
+  specs:
+    rvm (0.9.2)
+      chef_gem (>= 0.0.0)
+
+DEPENDENCIES
+  geoip (>= 0)
+  git (>= 0)
+  imagemagick (>= 0)
+  libcurl (>= 0)
+  libmagic (>= 0)
+  memcached (>= 0)
+  mysql (>= 0)
+  openssl (>= 0)
+  redisio (~> 1.7.0)
+  rvm (>= 0)
+  sudo (>= 0)
+  ulimit (= 0.2.0)
+  zip (>= 0)
+
