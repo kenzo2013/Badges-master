@@ -10,7 +10,6 @@ class VideosController < ApplicationController
   # GET /videos/1
   # GET /videos/1.json
   def show
-    current_user.try :watch_video, @video
   end
 
   # GET /videos/new
@@ -62,8 +61,7 @@ class VideosController < ApplicationController
     end
   end
   
-   def play
-    debugger
+ def play
    current_user.try :watch_video, @video
    VideoUser.iterate_number_view(current_user.id, @video.id)
     respond_to do |format|

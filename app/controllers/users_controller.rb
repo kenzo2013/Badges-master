@@ -57,7 +57,6 @@ class UsersController < ApplicationController
     # "Allway" Badge: User has to have viewed the "Ruby Methods" video only
     # "SpeedRun" Badge: User has to have viewed last  videos only
   def link_badge_user
-    debugger
     respond_to do |format|
       if User.link_automatically_badge_to_user_with_conditions(params[:id])
         format.html { redirect_to users_path, notice: 'Link badge with user was successfully created.' }
