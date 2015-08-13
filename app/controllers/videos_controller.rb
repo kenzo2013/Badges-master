@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-  before_action :set_video, only: [:show, :edit, :update, :destroy]
+  before_action :set_video, only: [:play, :show, :edit, :update, :destroy]
 
   # GET /videos
   # GET /videos.json
@@ -59,6 +59,15 @@ class VideosController < ApplicationController
     respond_to do |format|
       format.html { redirect_to videos_url, notice: 'Video was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+  
+   def play
+    debugger
+   current_user.try :watch_video, @video
+   VideoUser.iterate_number_view(current_user.id, @video.id)
+    respond_to do |format|
+      format.js
     end
   end
 
