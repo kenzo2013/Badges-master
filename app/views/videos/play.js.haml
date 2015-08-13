@@ -1,4 +1,2 @@
-%html
-  %head
-    %title play.js
-  %body
+$(".display_status").empty();
+$(".display_status").append("#{escape_javascript render :partial=> 'display_status'}");
