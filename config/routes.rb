@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/log_in/:id' => 'application#log_in', as: :log_in
   get '/log_out' => 'application#log_out', as: :log_out
   get '/users/link_badge_user/:id' => 'users#link_badge_user', as: :link_badge_user
+  get '/videos/play/:id' => 'videos#play', as: :play
 
 
   # The priority is based upon order of creation: first created -> highest priority.
