@@ -10,6 +10,7 @@ class VideosController < ApplicationController
   # GET /videos/1
   # GET /videos/1.json
   def show
+    #current_user.try :watch_video, @video
   end
 
   # GET /videos/new
@@ -62,12 +63,11 @@ class VideosController < ApplicationController
   end
   
  def play
-   current_user.try :watch_video, @video
-   VideoUser.iterate_number_view(current_user.id, @video.id)
+  VideoUser.iterate_number_view(current_user.id, @video.id)
     respond_to do |format|
       format.js
     end
-  end
+ end
 
   private
     # Use callbacks to share common setup or constraints between actions.

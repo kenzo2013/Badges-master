@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20140606143225) do
   create_table "video_users", force: :cascade do |t|
     t.integer  "video_id"
     t.integer  "user_id"
+    t.integer  "number_view", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
