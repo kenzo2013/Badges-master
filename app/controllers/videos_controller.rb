@@ -3,7 +3,7 @@ class VideosController < ApplicationController
 
   # GET /videos
   # GET /videos.json
-  def index
+  def index 
     @videos = Video.all
   end
 
@@ -62,13 +62,14 @@ class VideosController < ApplicationController
     end
   end
   
+  # adjourn or creates the number of views of the video
+  # respond file play.js
  def play
   VideoUser.iterate_number_view(current_user.id, @video.id)
     respond_to do |format|
       format.js
     end
  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_video

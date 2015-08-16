@@ -37,7 +37,7 @@ gem 'spring',        group: :development
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+
 
 gem 'slim'
 gem 'pry'
@@ -46,7 +46,13 @@ gem "better_errors"
 gem 'compass-rails', '~> 2.0.4'
 gem "font-awesome-rails"
 gem 'r_kit', '~> 0.2.1.1'
-gem 'rspec-rails', '~> 3.0.0'
 gem 'haml'
 gem "erb2haml", :group => :development
 gem 'byebug'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0'
+  gem 'capybara'
+end
+
+

@@ -10,7 +10,7 @@
     %h2= badge.name
     .symbol
       = fa_icon badge.fa_symbol
-    =  @user
+    %strong Number of users
     %h2= badge.users.count 
 
 = link_to 'Edit', edit_company_path(@company)
